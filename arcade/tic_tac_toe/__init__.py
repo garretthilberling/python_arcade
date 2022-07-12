@@ -3,6 +3,9 @@ import math
 import time
 import keyboard
 from player import HumanPlayer, RandomComputerPlayer, GeniusComputerPlayer
+import sys
+sys.path.insert(0, '..\..')
+from util import up, down, difficulty, selected, get_selected
 
 class TicTacToe:
 	def __init__(self):
@@ -107,33 +110,12 @@ def play(game, x_player, o_player, print_game=True):
 		print('It\'s a tie!')
 
 if __name__ == '__main__':
-	selected = 1
-	modes = ["Easy mode", "Expert mode", "Play with a friend"]
-	def difficulty():
-		global selected
-		print("\n")
-		print("Choose an option:")
-		for i in range(1,4):
-			print("{1} {0}. {3} {2}".format(i, ">" if selected == i else " ", "<" if selected == i else " ", modes[i - 1]))
-
-	def up():
-		global selected
-		if selected == 1:
-			return
-		selected -= 1
-		difficulty()
-
-	def down():
-		global selected
-		if selected == 3:
-			return
-		selected += 1
-		difficulty()
-		
 	x_player = HumanPlayer('X')
-	o_player = RandomComputerPlayer('O')
+	#o_player = RandomComputerPlayer('O')
+	selected = 1
 
 	def enter():
+		global o_player
 		if selected == 1:
 			o_player = RandomComputerPlayer('O')
 		elif selected == 2:
@@ -141,8 +123,6 @@ if __name__ == '__main__':
 		else:
 			o_player = HumanPlayer('O')
 		
-
-
 	difficulty()
 	keyboard.add_hotkey('up', up)
 	keyboard.add_hotkey('down', down)
@@ -150,4 +130,5 @@ if __name__ == '__main__':
 	keyboard.wait('enter')
 
 	t = TicTacToe()
+	print(selected)
 	play(t, x_player, o_player, print_game=True)

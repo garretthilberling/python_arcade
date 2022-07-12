@@ -82,6 +82,7 @@ def play(game, x_player, o_player, print_game=True):
 	# (we don't have to worry about winner because we'll just return 
 	# that which breaks the loop)
 	while game.empty_squares():
+		print("\n")
 		# get move from the appropriate player
 		if letter == 'O':
 			square = o_player.get_move(game)
@@ -128,23 +129,25 @@ if __name__ == '__main__':
 			return
 		selected += 1
 		difficulty()
-
+		
 	x_player = HumanPlayer('X')
 	o_player = RandomComputerPlayer('O')
 
-	def init():
+	def enter():
 		if selected == 1:
 			o_player = RandomComputerPlayer('O')
 		elif selected == 2:
 			o_player = GeniusComputerPlayer('O')
 		else:
 			o_player = HumanPlayer('O')
-		t = TicTacToe()
-		play(t, x_player, o_player, print_game=True)
+		
 
 
 	difficulty()
 	keyboard.add_hotkey('up', up)
 	keyboard.add_hotkey('down', down)
-	keyboard.add_hotkey('enter', init)
-	keyboard.wait()
+	keyboard.add_hotkey('enter', enter)
+	keyboard.wait('enter')
+
+	t = TicTacToe()
+	play(t, x_player, o_player, print_game=True)

@@ -1,6 +1,8 @@
+from asyncio import _enter_task
 import math
 import time
-from player import HumanPlayer, RandomComputerPlayer
+import keyboard
+from player import HumanPlayer, RandomComputerPlayer, GeniusComputerPlayer
 
 class TicTacToe:
 	def __init__(self):
@@ -99,12 +101,50 @@ def play(game, x_player, o_player, print_game=True):
 
 		# after we made our move, we need to alternate letters
 		letter = 'O' if letter == 'X' else 'X'
-
+		time.sleep(0.8)
 	if print_game:
 		print('It\'s a tie!')
 
 if __name__ == '__main__':
+	selected = 1
+	modes = ["Easy mode", "Expert mode", "Play with a friend"]
+	def difficulty():
+		global selected
+		print("\n")
+		print("Choose an option:")
+		for i in range(1,4):
+			print("{1} {0}. {3} {2}".format(i, ">" if selected == i else " ", "<" if selected == i else " ", modes[i - 1]))
+
+	def up():
+		global selected
+		if selected == 1:
+			return
+		selected -= 1
+		difficulty()
+
+	def down():
+		global selected
+		if selected == 3:
+			return
+		selected += 1
+		difficulty()
+
 	x_player = HumanPlayer('X')
 	o_player = RandomComputerPlayer('O')
-	t = TicTacToe()
-	play(t, x_player, o_player, print_game=True)
+
+	def init():
+		if selected == 1:
+			o_player = RandomComputerPlayer('O')
+		elif selected == 2:
+			o_player = GeniusComputerPlayer('O')
+		else:
+			o_player = HumanPlayer('O')
+		t = TicTacToe()
+		play(t, x_player, o_player, print_game=True)
+
+
+	difficulty()
+	keyboard.add_hotkey('up', up)
+	keyboard.add_hotkey('down', down)
+	keyboard.add_hotkey('enter', init)
+	keyboard.wait()

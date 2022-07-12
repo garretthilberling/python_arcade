@@ -112,13 +112,12 @@ def play(game, x_player, o_player, print_game=True):
 if __name__ == '__main__':
 	x_player = HumanPlayer('X')
 	#o_player = RandomComputerPlayer('O')
-	selected = 1
 
 	def enter():
 		global o_player
-		if selected == 1:
+		if selected.s == 1:
 			o_player = RandomComputerPlayer('O')
-		elif selected == 2:
+		elif selected.s == 2:
 			o_player = GeniusComputerPlayer('O')
 		else:
 			o_player = HumanPlayer('O')
@@ -130,5 +129,5 @@ if __name__ == '__main__':
 	keyboard.wait('enter')
 
 	t = TicTacToe()
-	print(selected)
+	print(selected.s)
 	play(t, x_player, o_player, print_game=True)

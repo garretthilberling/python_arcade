@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\practice_projects",
-    "\\practice_projects\\minesweeper"
+    "\\arcade",
+    "\\arcade\\tic_tac_toe",
+    "\\util"
   ],
-  "SelectedNode": "\\practice_projects\\minesweeper\\game.py",
+  "SelectedNode": "\\arcade\\tic_tac_toe\\__init__.py",
   "PreviewInSolutionExplorer": false
 }

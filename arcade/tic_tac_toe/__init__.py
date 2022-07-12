@@ -5,7 +5,7 @@ import keyboard
 from player import HumanPlayer, RandomComputerPlayer, GeniusComputerPlayer
 import sys
 sys.path.insert(0, '..\..')
-from util import up, down, difficulty, selected, get_selected
+from util import up, down, menu, params
 
 class TicTacToe:
 	def __init__(self):
@@ -111,23 +111,22 @@ def play(game, x_player, o_player, print_game=True):
 
 if __name__ == '__main__':
 	x_player = HumanPlayer('X')
-	#o_player = RandomComputerPlayer('O')
+	params.options = ["Easy mode", "Expert mode", "Play with a friend"]
 
 	def enter():
 		global o_player
-		if selected.s == 1:
+		if params.s == 1:
 			o_player = RandomComputerPlayer('O')
-		elif selected.s == 2:
+		elif params.s == 2:
 			o_player = GeniusComputerPlayer('O')
 		else:
 			o_player = HumanPlayer('O')
 		
-	difficulty()
+	menu()
 	keyboard.add_hotkey('up', up)
 	keyboard.add_hotkey('down', down)
 	keyboard.add_hotkey('enter', enter)
 	keyboard.wait('enter')
 
 	t = TicTacToe()
-	print(selected.s)
 	play(t, x_player, o_player, print_game=True)

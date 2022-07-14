@@ -10,6 +10,7 @@ def menu():
 	clear = lambda: os.system('cls')
 	clear()
 	global params
+	print(params.s)
 	print("\n")
 	print("Choose an option:")
 	for i in range(1,params.l+1):

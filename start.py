@@ -1,5 +1,5 @@
 import keyboard
-import os
+import os, subprocess
 
 from util import params, menu, up, down
 
@@ -11,7 +11,8 @@ if __name__ == '__main__':
 	def enter():
 		for i in range(1, len(game)):
 			if params.s == i:
-				os.system(f'cd arcade/{game[i - 1]} && python __init__.py')
+				os.chdir(f'arcade/{game[i - 1]}')
+				os.system(r'python __init__.py')
 		
 	menu()
 	keyboard.add_hotkey('up', up)

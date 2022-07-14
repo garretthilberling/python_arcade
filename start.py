@@ -9,14 +9,9 @@ if __name__ == '__main__':
 	game = ['hangman', 'rock_paper_scissors', 'tic_tac_toe', 'minesweeper']
 
 	def enter():
-		if params.s == 1:
-			os.system(f'cd arcade/{game[0]} && python __init__.py')
-		elif params.s == 2:
-			os.system(f'cd arcade/{game[1]} && python __init__.py')
-		elif params.s == 3:
-			os.system(f'cd arcade/{game[2]} && python __init__.py')
-		else:
-			os.system(f'cd arcade/{game[3]} && python __init__.py')
+		for i in range(1, len(game)):
+			if params.s == i:
+				os.system(f'cd arcade/{game[i - 1]} && python __init__.py')
 		
 	menu()
 	keyboard.add_hotkey('up', up)

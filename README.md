@@ -34,7 +34,7 @@ Here is a demonstration of how to use this app:
 </div>
 
 ## Installation
-To use this application clone this repository to your machine and in the root folder, run `python start.py` to begin the game.
+To use this application clone this repository to your machine and in the root folder, run `python start.py` to access the arcade.
 
 ## Questions
 If you have any questions about this project, please contact me via my GitHub: https://github.com/garretthilberling

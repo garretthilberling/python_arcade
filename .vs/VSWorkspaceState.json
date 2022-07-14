@@ -2,6 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\arcade",
+    "\\arcade\\hangman",
+    "\\arcade\\minesweeper",
+    "\\arcade\\rock_paper_scissors",
     "\\arcade\\tic_tac_toe",
     "\\util"
   ],

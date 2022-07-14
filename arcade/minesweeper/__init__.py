@@ -153,5 +153,5 @@ def play(dim_size=10, num_bombs=10):
         board.dug = [(r,c) for r in range(board.dim_size) for c in range(board.dim_size)]
         print(board)
 
-if __name__ == '__main__': # good practice
+if __name__ == '__main__':
     play()

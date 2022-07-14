@@ -3,7 +3,7 @@ import os
 class params:
 	s = 1
 	options = [] # options will be assigned where this is called
-	l = len(options) + 1
+	l = 3
 
 
 def menu():

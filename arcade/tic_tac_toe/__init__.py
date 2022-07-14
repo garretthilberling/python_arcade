@@ -3,8 +3,13 @@ import math
 import time
 import keyboard
 from player import HumanPlayer, RandomComputerPlayer, GeniusComputerPlayer
+#import os
 import sys
-sys.path.insert(0, '..\..')
+#path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
+#sys.path.append(path)
+sys.path.insert(0, '../..')
+#from pathlib import Path
+#Path(__file__).resolve().parent.parent
 from util import up, down, menu, params
 
 class TicTacToe:
